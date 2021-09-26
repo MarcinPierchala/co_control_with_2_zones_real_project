@@ -1,21 +1,40 @@
 
 
+
 void setup()
 {
-  pinMode(7, OUTPUT);
-  pinMode(9, INPUT_PULLUP);
-  pinMode(8, INPUT_PULLUP);
-  digitalWrite(7, HIGH);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4,INPUT_PULLUP);
+  pinMode(5,INPUT_PULLUP);
 }
 
 void loop()
 {
-  
-  if(digitalRead(9) == LOW){
-    delay(5000);
-    digitalWrite(7,LOW);
+    
+  if((digitalRead(4) == LOW)&&(digitalRead(5) == HIGH))
+  {
+    digitalWrite(3, HIGH);
+    delay(10000);
+    digitalWrite(2, HIGH);
   }
-  else{
-    digitalWrite(7,HIGH);
+  
+  if((digitalRead(4) == LOW)&&(digitalRead(5) == LOW))
+  {
+    digitalWrite(3, HIGH);
+    delay(10000);
+    digitalWrite(2, HIGH);
+  }
+  
+  if((digitalRead(4) == HIGH)&&(digitalRead(5) == LOW))
+  {
+    digitalWrite(3, HIGH);
+    digitalWrite(2, LOW);
+  }
+  
+  if((digitalRead(4) == HIGH)&&(digitalRead(5) == HIGH))
+  {
+    digitalWrite(3, LOW);
+    digitalWrite(2, LOW);
   }
 }
